@@ -1,5 +1,7 @@
 # Car Dealership Web Security Project
 
+### Fork this repository into your own project folder before beginning!
+
 ## Background
 * You will need to create a Mongo Database called CarDealership. Run it through Docker
 * You will work in pairs for this exercise
