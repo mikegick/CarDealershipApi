@@ -1,4 +1,4 @@
 package com.catalyte.dealership.Services;
 
-public class Authorization {
+public interface AuthorizationService {
 }
