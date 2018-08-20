@@ -9,7 +9,8 @@
 A car dealership has approached you to ask you to update their API to have user password protection.
 They've done some research and found that the industry standard is to use a salt to hash passwords when new users are created.
 >Update the code to incorporate using a salt with a hash to save user's passwords in the database.
->Your code should be in the appropriate layer of the multi-layered architecture\nYou will need to add application logic as well as updating the entity model to reflect changes
+>Your code should be in the appropriate layer of the multi-layered architecture.
+>You will need to add application logic as well as updating the entity model to reflect changes
 
 ## Part 2
 The car dealership has found that while the passwords in the database are now properly encrypted, they now need the ability to log in.
