@@ -51,7 +51,8 @@ public class TokenServiceImpl implements TokenService {
     }
 
     public boolean isTokenValid(String token) {
-        String userId = this.getUserIdFromToken(token);
-        return userId != null;
+        //Check if token is able to be decompacted and if user id exists
+        //If user id exists, assume token is valid
+        return getUserIdFromToken(token) != null;
     }
 }

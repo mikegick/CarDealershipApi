@@ -1,6 +1,8 @@
 package com.catalyte.dealership.Controllers;
 
 
+import com.catalyte.dealership.CustomExceptions.InvalidUsernamePasswordException;
+import com.catalyte.dealership.CustomExceptions.NotAuthorizedException;
 import com.catalyte.dealership.Models.User;
 import com.catalyte.dealership.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +16,16 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    AuthorizationService authService;
+
     public UserController(){
-        this(new UserServiceImpl());
+        this(new UserServiceImpl(), new AuthorizationServiceImpl());
     }
 
-    UserController(UserService userServiceImpl){
-        this.userService = userServiceImpl;
+    UserController(UserService userService, AuthorizationService authService){
+        this.userService = userService;
+        this.authService = authService;
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -27,7 +33,7 @@ public class UserController {
         userService.create(user);
     }
 
-    @RequestMapping(value= "/retrieve", method =RequestMethod.GET)
+    @RequestMapping(value= "/retrieve", method = RequestMethod.GET)
     public List<User>findAll(){
         return userService.findAll();
     }
@@ -40,5 +46,15 @@ public class UserController {
     @RequestMapping(value ="/delete", method = RequestMethod.DELETE)
     public void delete(@RequestBody String id){
         userService.delete(id);
+    }
+
+    @RequestMapping(value = "/getToken", method = RequestMethod.GET)
+    public String getToken(@RequestBody String username, @RequestBody String password){
+        String token = authService.getJWT(username, password);
+        if(token == null){
+            throw new InvalidUsernamePasswordException();
+        } else {
+            return token;
+        }
     }
 }
