@@ -3,7 +3,9 @@ package com.catalyte.dealership.Services;
 import com.catalyte.dealership.Models.User;
 import com.catalyte.dealership.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthorizationServiceImpl implements AuthorizationService {
     @Autowired
     UserRepository userRepository;

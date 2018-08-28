@@ -58,6 +58,7 @@ public class JWTFilter extends GenericFilterBean {
 
     private boolean allowRequestWithoutToken(HttpServletRequest request){
         List<String> whitelist = new ArrayList();
+        whitelist.add("/user/getToken");
         //TODO: Add whitelisted paths to `whitelist`
         return whitelist.contains(request.getRequestURI());
     }

@@ -2,4 +2,4 @@ spring:
   data:
     mongodb:
       database: CarDealership
-      Port: 32769
+      Port: 32770

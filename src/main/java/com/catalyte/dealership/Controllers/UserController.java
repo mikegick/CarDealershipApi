@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/getToken", method = RequestMethod.GET)
-    public String getToken(@RequestBody String username, @RequestBody String password){
+    public String getToken(@RequestHeader String username, @RequestHeader String password){
         String token = authService.getJWT(username, password);
         if(token == null){
             throw new InvalidUsernamePasswordException();

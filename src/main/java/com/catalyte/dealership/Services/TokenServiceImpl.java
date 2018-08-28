@@ -6,10 +6,10 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.TextCodec;
-
-import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
 import java.util.Date;
 
+@Service
 public class TokenServiceImpl implements TokenService {
     public static final String TOKEN_SECRET = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
     public static final long HOUR = 3600000;
